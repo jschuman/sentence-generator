@@ -8,10 +8,16 @@ function Sentences() {
 
   useEffect(() => {
     if (refresh) {
-      fetch('http://localhost:8000/sentences')
+      fetch("https://api.jsonbin.io/v3/b/65e0e5cb1f5677401f3649ca", {
+        headers: {
+        "Content-Type": "application/json",
+        "X-Master-Key": "$2a$10$8IaBMsTjuufn4Hm39HEmreevKLYoGHhH2y/WieQrjDj.uN5o9iCgW"
+        },
+      })
+
         .then(response => response.json())
         .then(data => {
-          setSentences(data);
+          setSentences(data.record);
           setRefresh(0);
         });
     }
@@ -25,7 +31,7 @@ function Sentences() {
       <ul>
         {sentences.map((sentence, index) => (
           <Typography key={index} variant="h5" gutterBottom>
-            {sentence.content}
+            {sentence}
           </Typography>
         ))}
       </ul>
