@@ -5,7 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import nouns from '../nouns.json';
 import verbs from '../verbs.json';
 
-function GeneratorForm() {
+function GeneratorForm({setNeedsRefresh}) {
   const [name, setName] = useState('');
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -47,6 +47,7 @@ function GeneratorForm() {
             .then((data) => {
               console.log(data);
               setName('');
+              setNeedsRefresh(true);
             })
             .catch((error) => console.log(error))
             .finally(() => {

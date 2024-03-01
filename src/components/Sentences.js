@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 
-function Sentences() {
+function Sentences({needsRefresh, setNeedsRefresh}) {
   const [sentences, setSentences] = useState([]);
   const [refresh, setRefresh] = useState(1);
 
   useEffect(() => {
-    if (refresh) {
+    if (refresh || needsRefresh) {
       fetch("https://api.jsonbin.io/v3/b/65e0e5cb1f5677401f3649ca", {
         headers: {
         "Content-Type": "application/json",
@@ -19,9 +19,10 @@ function Sentences() {
         .then(data => {
           setSentences(data.record);
           setRefresh(0);
+          setNeedsRefresh(false);
         });
     }
-  }, [refresh]); 
+  }, [refresh, needsRefresh, setNeedsRefresh]); 
 
   return (
     <div>
