@@ -10,9 +10,7 @@ This is a simple React application that generates random sentences using JSON Se
 
   npm install
 
-4. Start the JSON Server:
-
-  npx json-server db.json --port=8000
+4. Uses jsonbin
 
 5. Start the React app:
 
