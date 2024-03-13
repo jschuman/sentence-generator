@@ -2,7 +2,35 @@
   "sentences": [
     {
       "id": "1",
-      "sentence": "Jeff talks to xenomorphs!"
+      "text": "Jeff talks to xenomorphs!"
+    },
+    {
+      "id": "d31c",
+      "text": "Katie remembers narwhals!"
+    },
+    {
+      "id": "6ca4",
+      "text": "Ben sees kangaroos!"
+    },
+    {
+      "id": "d970",
+      "text": "Miranda craves alligators!"
+    },
+    {
+      "id": "9b8e",
+      "text": "Jill smells gorillas!"
+    },
+    {
+      "id": "187a",
+      "text": "Kat hears lemurs!"
+    },
+    {
+      "id": "400a",
+      "text": "fat ducks dogs!"
+    },
+    {
+      "id": "c77b",
+      "text": "cooko tastes tigers!"
     }
   ]
 }

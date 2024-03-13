@@ -8,16 +8,15 @@ function Sentences({needsRefresh, setNeedsRefresh}) {
 
   useEffect(() => {
     if (refresh || needsRefresh) {
-      fetch("https://api.jsonbin.io/v3/b/65e0e5cb1f5677401f3649ca", {
+      let api = `${process.env.REACT_APP_API_HOST}/sentences`;
+      fetch(api, {
         headers: {
         "Content-Type": "application/json",
-        "X-Master-Key": "$2a$10$8IaBMsTjuufn4Hm39HEmreevKLYoGHhH2y/WieQrjDj.uN5o9iCgW"
         },
       })
-
         .then(response => response.json())
         .then(data => {
-          setSentences(data.record);
+          setSentences(data);
           setRefresh(0);
           setNeedsRefresh(false);
         });
@@ -31,8 +30,8 @@ function Sentences({needsRefresh, setNeedsRefresh}) {
       </Button>
       <ul>
         {sentences.map((sentence, index) => (
-          <Typography key={index} variant="h5" gutterBottom>
-            {sentence}
+          <Typography key={sentence.id} variant="h5" gutterBottom>
+            {sentence.text}
           </Typography>
         ))}
       </ul>
